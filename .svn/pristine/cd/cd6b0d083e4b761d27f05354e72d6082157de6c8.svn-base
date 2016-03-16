@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserTypeMapper">
+  <resultMap id="BaseResultMap" type="entity.UserType">
+    <id column="T_ID" jdbcType="INTEGER" property="tId" />
+    <result column="TYPE_NAME" jdbcType="VARCHAR" property="typeName" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    T_ID, TYPE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="entity.UserType">
+    insert into usertype (T_ID, TYPE_NAME)
+    values (#{tId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.UserType">
+    insert into usertype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        T_ID,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="entity.UserTypeExample" resultType="java.lang.Integer">
+    select count(*) from usertype
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.UserType">
+    update usertype
+    <set>
+      <if test="typeName != null">
+        TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.UserType">
+    update usertype
+    set TYPE_NAME = #{typeName,jdbcType=VARCHAR}
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="entity.UserType">
+    <id column="T_ID" jdbcType="INTEGER" property="tId" />
+    <result column="TYPE_NAME" jdbcType="VARCHAR" property="typeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    T_ID, TYPE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="entity.UserType">
+    insert into usertype (T_ID, TYPE_NAME)
+    values (#{tId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.UserType">
+    insert into usertype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        T_ID,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.UserType">
+    update usertype
+    <set>
+      <if test="typeName != null">
+        TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.UserType">
+    update usertype
+    set TYPE_NAME = #{typeName,jdbcType=VARCHAR}
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="entity.UserType">
+    <id column="T_ID" jdbcType="INTEGER" property="tId" />
+    <result column="TYPE_NAME" jdbcType="VARCHAR" property="typeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    T_ID, TYPE_NAME
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from usertype
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="entity.UserType">
+    insert into usertype (T_ID, TYPE_NAME)
+    values (#{tId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="entity.UserType">
+    insert into usertype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        T_ID,
+      </if>
+      <if test="typeName != null">
+        TYPE_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="typeName != null">
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="entity.UserType">
+    update usertype
+    <set>
+      <if test="typeName != null">
+        TYPE_NAME = #{typeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="entity.UserType">
+    update usertype
+    set TYPE_NAME = #{typeName,jdbcType=VARCHAR}
+    where T_ID = #{tId,jdbcType=INTEGER}
+  </update>
+</mapper>

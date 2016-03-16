@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.radixdigit.mapper.FlPowerNetMapper" >
+  <!-- 查找所有高压点路线 -->
+  <select id="selectLines" resultType="com.radixdigit.entity.NetTree">
+		select DISTINCT u.line_code as name
+		from fl_powernet_localinfo u
+  </select>
+  <!-- 查找某条线的杆塔 -->
+  <select id="selectTowers" parameterType="com.radixdigit.entity.NetTree" resultType="com.radixdigit.entity.NetTree">
+		select DISTINCT u.tower_code as name
+		from fl_powernet_localinfo u
+		where 1=1 
+		<if test="name !=null and name!=''">
+			and u.line_code =#{name} 
+		</if>
+  </select>
+  
+    <!-- 查找杆塔下的站点 -->
+  <select id="selectPoints" parameterType="com.radixdigit.entity.NetTree" resultType="com.radixdigit.entity.NetTree">
+		select DISTINCT u.point_code as name,u.base_code as baseCode
+		from fl_powernet_localinfo u
+		where 1=1 
+		<if test="name !=null and name!=''">
+			and u.tower_code =#{name} 
+		</if>
+  </select>
+  
+</mapper>

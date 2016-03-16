@@ -1,0 +1,12 @@
+package com.radixdigit.services.users;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.radixdigit.entity.FlUserUser;
+
+@Service
+public interface FlUserUserService {
+	List<FlUserUser> listPageUser(FlUserUser user);
+}

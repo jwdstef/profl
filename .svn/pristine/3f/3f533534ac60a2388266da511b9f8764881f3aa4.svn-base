@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:tx="http://www.springframework.org/schema/tx"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop"   
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx.xsd  
+       http://www.springframework.org/schema/context   
+       http://www.springframework.org/schema/context/spring-context.xsd  
+       http://www.springframework.org/schema/aop  
+       http://www.springframework.org/schema/aop/spring-aop.xsd">  
+       <context:component-scan base-package="com.radixdigit" />
+	   <context:annotation-config />
+<!-- 加载properties配置文件 -->  
+
+    <bean id="config"  
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <!-- 是否忽略不可解析的 -->  
+        <property name="ignoreUnresolvablePlaceholders" value="true" />  
+        <!-- 多个locations， 单个location <value> -->  
+        <property name="locations">  
+            <list>  
+                <value>classpath:com/radixdigit/config/prop/*.properties</value><!--  
+                <value>classpath:/com.radixdigit.config/urlAddress.properties</value>  
+          -->
+            </list>  
+        </property>  
+    </bean>  
+    <!-- 加载 其他xml文件 -->  
+    <import resource="classpath:com/radixdigit/config/common.xml" />  
+   
+    <!--這裡加載其他spring配置文件，比如ioc依賴配置、屬性文件統一加載管理等等-->
+    <import resource="classpath:com/radixdigit/config/properties.xml" />  
+    <import resource="classpath:com/radixdigit/config/ioc/users/services/applicationContext-services.xml" />
+  
+</beans>

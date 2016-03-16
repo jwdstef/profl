@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.radixdigit.mapper.FlUserUserMapper" >
+  <resultMap id="BaseResultMap" type="com.radixdigit.entity.FlUserUser" >
+    <id column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="puser_id" property="puserId" jdbcType="BIGINT" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="name_en" property="nameEn" jdbcType="VARCHAR" />
+    <result column="USER_CODE" property="userCode" jdbcType="VARCHAR" />
+    <result column="user_flag" property="userFlag" jdbcType="INTEGER" />
+    <result column="dept_id" property="deptId" jdbcType="BIGINT" />
+    <result column="job" property="job" jdbcType="INTEGER" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="home_tel" property="homeTel" jdbcType="VARCHAR" />
+    <result column="work_tel" property="workTel" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="birth" property="birth" jdbcType="DATE" />
+    <result column="record_date" property="recordDate" jdbcType="DATE" />
+    <result column="marrid" property="marrid" jdbcType="INTEGER" />
+    <result column="home_address" property="homeAddress" jdbcType="VARCHAR" />
+    <result column="in_date" property="inDate" jdbcType="DATE" />
+    <result column="out_date" property="outDate" jdbcType="DATE" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="DATE" />
+    <result column="creator" property="creator" jdbcType="BIGINT" />
+    <result column="modify_date" property="modifyDate" jdbcType="DATE" />
+    <result column="modificator" property="modificator" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="version_" property="version" jdbcType="INTEGER" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="listPageUser" parameterType="com.radixdigit.entity.FlUserUser" resultMap="BaseResultMap">
+		select u.user_id,u.USER_NAME,u.name_en
+		from fl_user_user u 
+		where 1=1 
+		<if test="userName!=null and userName!=''">
+			and u.USER_NAME like "%"#{userName}"%" 
+		</if>
+  </select>
+  <!-- 登陆 -->
+   <select id="login" parameterType="com.radixdigit.entity.FlUserUser" resultMap="BaseResultMap">
+		select u.user_id,u.USER_NAME,u.name_en
+		from fl_user_user u 
+		where 1=1 and u.user_name =#{userName} and u.password=#{password}
+  </select>
+  
+  
+  
+	
+  <sql id="Base_Column_List" >
+    USER_ID, puser_id, USER_NAME, name_en, USER_CODE, user_flag, dept_id, job, idcard, 
+    tel, home_tel, work_tel, sex, birth, record_date, marrid, home_address, in_date, 
+    out_date, remark, delete_flag, create_date, creator, modify_date, modificator, status, 
+    version_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from fl_user_user
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from fl_user_user
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.radixdigit.entity.FlUserUser" >
+    insert into fl_user_user (USER_ID, puser_id, USER_NAME, 
+      name_en, USER_CODE, user_flag, 
+      dept_id, job, idcard, 
+      tel, home_tel, work_tel, 
+      sex, birth, record_date, marrid, 
+      home_address, in_date, out_date, 
+      remark, delete_flag, create_date, 
+      creator, modify_date, modificator, 
+      status, version_)
+    values (#{userId,jdbcType=BIGINT}, #{puserId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, 
+      #{nameEn,jdbcType=VARCHAR}, #{userCode,jdbcType=VARCHAR}, #{userFlag,jdbcType=INTEGER}, 
+      #{deptId,jdbcType=BIGINT}, #{job,jdbcType=INTEGER}, #{idcard,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{homeTel,jdbcType=VARCHAR}, #{workTel,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{birth,jdbcType=DATE}, #{recordDate,jdbcType=DATE}, #{marrid,jdbcType=INTEGER}, 
+      #{homeAddress,jdbcType=VARCHAR}, #{inDate,jdbcType=DATE}, #{outDate,jdbcType=DATE}, 
+      #{remark,jdbcType=VARCHAR}, #{deleteFlag,jdbcType=INTEGER}, #{createDate,jdbcType=DATE}, 
+      #{creator,jdbcType=BIGINT}, #{modifyDate,jdbcType=DATE}, #{modificator,jdbcType=BIGINT}, 
+      #{status,jdbcType=INTEGER}, #{version,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.radixdigit.entity.FlUserUser" >
+    insert into fl_user_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="puserId != null" >
+        puser_id,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="nameEn != null" >
+        name_en,
+      </if>
+      <if test="userCode != null" >
+        USER_CODE,
+      </if>
+      <if test="userFlag != null" >
+        user_flag,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="homeTel != null" >
+        home_tel,
+      </if>
+      <if test="workTel != null" >
+        work_tel,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="birth != null" >
+        birth,
+      </if>
+      <if test="recordDate != null" >
+        record_date,
+      </if>
+      <if test="marrid != null" >
+        marrid,
+      </if>
+      <if test="homeAddress != null" >
+        home_address,
+      </if>
+      <if test="inDate != null" >
+        in_date,
+      </if>
+      <if test="outDate != null" >
+        out_date,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="modifyDate != null" >
+        modify_date,
+      </if>
+      <if test="modificator != null" >
+        modificator,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="version != null" >
+        version_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="puserId != null" >
+        #{puserId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null" >
+        #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userFlag != null" >
+        #{userFlag,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="homeTel != null" >
+        #{homeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="workTel != null" >
+        #{workTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birth != null" >
+        #{birth,jdbcType=DATE},
+      </if>
+      <if test="recordDate != null" >
+        #{recordDate,jdbcType=DATE},
+      </if>
+      <if test="marrid != null" >
+        #{marrid,jdbcType=INTEGER},
+      </if>
+      <if test="homeAddress != null" >
+        #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=DATE},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="modifyDate != null" >
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="modificator != null" >
+        #{modificator,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.radixdigit.entity.FlUserUser" >
+    update fl_user_user
+    <set >
+      <if test="puserId != null" >
+        puser_id = #{puserId,jdbcType=BIGINT},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="nameEn != null" >
+        name_en = #{nameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="userCode != null" >
+        USER_CODE = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userFlag != null" >
+        user_flag = #{userFlag,jdbcType=INTEGER},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=BIGINT},
+      </if>
+      <if test="job != null" >
+        job = #{job,jdbcType=INTEGER},
+      </if>
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="homeTel != null" >
+        home_tel = #{homeTel,jdbcType=VARCHAR},
+      </if>
+      <if test="workTel != null" >
+        work_tel = #{workTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birth != null" >
+        birth = #{birth,jdbcType=DATE},
+      </if>
+      <if test="recordDate != null" >
+        record_date = #{recordDate,jdbcType=DATE},
+      </if>
+      <if test="marrid != null" >
+        marrid = #{marrid,jdbcType=INTEGER},
+      </if>
+      <if test="homeAddress != null" >
+        home_address = #{homeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        in_date = #{inDate,jdbcType=DATE},
+      </if>
+      <if test="outDate != null" >
+        out_date = #{outDate,jdbcType=DATE},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=DATE},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=BIGINT},
+      </if>
+      <if test="modifyDate != null" >
+        modify_date = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="modificator != null" >
+        modificator = #{modificator,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        version_ = #{version,jdbcType=INTEGER},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.radixdigit.entity.FlUserUser" >
+    update fl_user_user
+    set puser_id = #{puserId,jdbcType=BIGINT},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      name_en = #{nameEn,jdbcType=VARCHAR},
+      USER_CODE = #{userCode,jdbcType=VARCHAR},
+      user_flag = #{userFlag,jdbcType=INTEGER},
+      dept_id = #{deptId,jdbcType=BIGINT},
+      job = #{job,jdbcType=INTEGER},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      home_tel = #{homeTel,jdbcType=VARCHAR},
+      work_tel = #{workTel,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      birth = #{birth,jdbcType=DATE},
+      record_date = #{recordDate,jdbcType=DATE},
+      marrid = #{marrid,jdbcType=INTEGER},
+      home_address = #{homeAddress,jdbcType=VARCHAR},
+      in_date = #{inDate,jdbcType=DATE},
+      out_date = #{outDate,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=DATE},
+      creator = #{creator,jdbcType=BIGINT},
+      modify_date = #{modifyDate,jdbcType=DATE},
+      modificator = #{modificator,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER},
+      version_ = #{version,jdbcType=INTEGER}
+    where USER_ID = #{userId,jdbcType=BIGINT}
+  </update>
+</mapper>

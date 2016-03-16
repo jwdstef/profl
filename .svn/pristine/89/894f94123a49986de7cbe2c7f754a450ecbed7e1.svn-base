@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.radixdigit.mapper.UsersMapper" >
+  <resultMap id="BaseResultMap" type="com.radixdigit.entity.Users" >
+    <id column="U_ID" property="uId" jdbcType="INTEGER" />
+    <result column="T_ID" property="tId" jdbcType="INTEGER" />
+    <result column="U_NAME" property="uName" jdbcType="VARCHAR" />
+    <result column="U_PASSWORD" property="uPassword" jdbcType="VARCHAR" />
+    <result column="AGE" property="age" jdbcType="INTEGER" />
+    <result column="SEX" property="sex" jdbcType="CHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    U_ID, T_ID, U_NAME, U_PASSWORD, AGE, SEX, PHONE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from users
+    where U_ID = #{uId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from users
+    where U_ID = #{uId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.radixdigit.entity.Users" >
+    insert into users (U_ID, T_ID, U_NAME, 
+      U_PASSWORD, AGE, SEX, PHONE
+      )
+    values (#{uId,jdbcType=INTEGER}, #{tId,jdbcType=INTEGER}, #{uName,jdbcType=VARCHAR}, 
+      #{uPassword,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{sex,jdbcType=CHAR}, #{phone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.radixdigit.entity.Users" >
+    insert into users
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        U_ID,
+      </if>
+      <if test="tId != null" >
+        T_ID,
+      </if>
+      <if test="uName != null" >
+        U_NAME,
+      </if>
+      <if test="uPassword != null" >
+        U_PASSWORD,
+      </if>
+      <if test="age != null" >
+        AGE,
+      </if>
+      <if test="sex != null" >
+        SEX,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="tId != null" >
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null" >
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.radixdigit.entity.Users" >
+    update users
+    <set >
+      <if test="tId != null" >
+        T_ID = #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="uName != null" >
+        U_NAME = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uPassword != null" >
+        U_PASSWORD = #{uPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        AGE = #{age,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null" >
+        SEX = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where U_ID = #{uId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.radixdigit.entity.Users" >
+    update users
+    set T_ID = #{tId,jdbcType=INTEGER},
+      U_NAME = #{uName,jdbcType=VARCHAR},
+      U_PASSWORD = #{uPassword,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=INTEGER},
+      SEX = #{sex,jdbcType=CHAR},
+      PHONE = #{phone,jdbcType=VARCHAR}
+    where U_ID = #{uId,jdbcType=INTEGER}
+  </update>
+</mapper>

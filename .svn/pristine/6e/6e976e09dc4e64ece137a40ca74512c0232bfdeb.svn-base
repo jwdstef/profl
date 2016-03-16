@@ -1,0 +1,3 @@
+#这个文件用于配置mybatis属性
+databaseType=MySql
+pageSqlId=.*listPage.*

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.radixdigit.mapper.FlDataMapper" >
+
+  <!--查询一分钟内电网站心坐标折线图数据  -->
+  <select id="selectLineData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.yaxis,u.xdate
+		from fl_data u 
+		where 1=1
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		order by u.id desc
+  		LIMIT 30
+  </select>
+  
+  <!--查询一分钟内电网形变量折线图数据  -->
+  <select id="selectDefLineData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.deflection as yaxis,u.xdate
+		from fl_data u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		order by u.id desc
+  		LIMIT 30
+  </select>
+  
+  <!--查询站心坐标最新一条数据  -->
+  <select id="selectAddData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.yaxis,u.xdate
+		from fl_data u
+		where 1=1
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		and u.iflag = "1"
+		and u.card_state = "Y"
+		and (u.position_flag = "4" or u.position_flag = "5")
+  		LIMIT 1
+  </select>
+  
+    <!--查询站心坐标最新一条数据  -->
+  <select id="selectTimeData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.xdate,u.fdatetime as fdateTime
+		from fl_data u
+		where 1=1
+		and u.base_code like CONCAT('%',#{bc},'%') 
+		and u.iflag = "1"
+		and u.card_state = "Y"
+		and (u.position_flag = "4" or u.position_flag = "5")
+		order by u.id desc
+  		LIMIT 1
+  </select>
+  
+  <update id="updateFlData" parameterType="Map" >
+    update fl_data u
+    set iflag = "2"
+    where 1=1
+	and u.base_code = #{baseCode,jdbcType=VARCHAR}
+	and u.type = #{type,jdbcType=VARCHAR}
+  </update>
+  
+   <!--查询站心坐标第一条数据  -->
+  <select id="firstData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.yaxis,u.xdate
+		from fl_data u
+		where 1=1
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		and u.yaxis !="0"
+		and u.card_state = "Y"
+		and (u.position_flag = "4" or u.position_flag = "5")
+		order by u.id asc
+  		LIMIT 1
+  </select>
+  
+  <!--查询变形量最新一条数据  -->
+  <select id="selectDefAddData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.deflection as yaxis,u.xdate
+		from fl_data u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		and u.iflag = "1"
+		and u.card_state = "Y"
+		and (u.position_flag = "4" or u.position_flag = "5")
+  		LIMIT 1
+  </select>
+  
+  <!--查询变形均值和变形精度  -->
+  <select id="selectChangeData" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.defmean,u.depepre,u.change_avalue changeAvalue,u.change_shot as changeShot
+		from fl_data u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		and u.type = #{type,jdbcType=VARCHAR}
+		order by u.create_date desc
+  		LIMIT 1
+  </select>
+  
+  <select id="timeNow" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select u.fdatetime as fdateTime,u.change_avalue as changeAvalue,
+		u.change_shot as changeShot
+		from fl_data u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		order by u.create_date desc
+  		LIMIT 1
+  </select>
+  
+    <select id="startTimeNow" parameterType="Map" resultType="com.radixdigit.entity.FlData">
+		select 
+		u.change_shot as changeShot
+		from fl_data u 
+		where 1=1 
+		and u.change_shot != "0"
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+		order by u.id asc
+  		LIMIT 1
+  </select>
+  
+  <select id="globalData" parameterType="Map" resultType="com.radixdigit.entity.FlGlobalInfo">
+		select u.start_time as startTime
+		from fl_globalinfo u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+  		LIMIT 1
+  </select>
+  
+    <!--查询变形均值和变形精度  -->
+  <select id="selectPointState" parameterType="Map" resultType="com.radixdigit.entity.FlGlobalInfo">
+		select u.states as pointState
+		from fl_powernet_localinfo u 
+		where 1=1 
+		and u.base_code = #{baseCode,jdbcType=VARCHAR}
+  		LIMIT 1
+  </select>
+</mapper>

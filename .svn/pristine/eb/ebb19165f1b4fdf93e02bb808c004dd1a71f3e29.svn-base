@@ -1,0 +1,27 @@
+package com.radixdigit.controller.users;
+
+import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.radixdigit.base.BaseController;
+import com.radixdigit.services.users.UserTypeServices;
+
+@Controller
+@Scope("prototype")
+@RequestMapping("/user")
+public class UserLoginAction extends BaseController<Object>{
+   
+	
+    @Resource
+	private UserTypeServices userTypeServices;
+
+    @RequestMapping("/select")
+	public void loginUser() {
+		
+		userTypeServices.selectUserAll();
+	}
+
+}

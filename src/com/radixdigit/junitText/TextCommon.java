@@ -1,0 +1,45 @@
+//package com.radixdigit.junitText;
+//
+//import java.io.File;
+//import java.util.Iterator;
+//
+//import org.dom4j.Document;
+//import org.dom4j.DocumentException;
+//import org.dom4j.Element;
+//import org.dom4j.io.SAXReader;
+//import org.junit.Test;
+//
+//import com.radixdigit.utils.ImageCommonUtil;
+//
+//public class TextCommon {
+//
+//	@Test
+//	public void text() {
+//		File inputXml = new File("E:\\syslog.xml");
+//		SAXReader saxReader = new SAXReader();
+//		try {
+//			Document document = saxReader.read(inputXml);
+//			Element employees = document.getRootElement();
+//			for (Iterator i = employees.elementIterator(); i.hasNext();) {
+//				Element employee = (Element) i.next();
+//				for (Iterator j = employee.elementIterator(); j.hasNext();) {
+//					Element node = (Element) j.next();
+//					System.out.println(node.getName() + ":" + node.getText());
+//				}
+//			}
+//		} catch (DocumentException e) {
+//			System.out.println(e.getMessage());
+//		}
+//		System.out.println("dom4j parserXml");
+//	}
+///**
+// * 图片缩略测试
+// */
+//	@Test
+//	public void imageChange() {
+//		 ImageCommonUtil u = new ImageCommonUtil();
+//	       u.zipImageFile("url", 850, 650, 1f, "x2");
+//
+//	}
+//
+//}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 这个xml作用是在启动项目的时候给org.springframework.beans.factory.config.PropertiesFactoryBean  赋值，这样在代码中可以使用下面方法获得这些值 -->
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/tx   
+       http://www.springframework.org/schema/tx/spring-tx.xsd  
+       http://www.springframework.org/schema/context   
+       http://www.springframework.org/schema/context/spring-context.xsd  
+       http://www.springframework.org/schema/aop  
+       http://www.springframework.org/schema/aop/spring-aop.xsd">  
+  
+  
+    <!-- platform properties -->  
+    <bean id="imageUrlProperties"  
+        class="org.springframework.beans.factory.config.PropertiesFactoryBean">  
+        <property name="singleton" value="true" />  
+        <property name="properties">  
+            <props>  
+                <prop key="text">${text}</prop>  
+                
+            </props>  
+        </property>  
+    </bean>  
+  
+  
+</beans>

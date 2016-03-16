@@ -1,0 +1,8 @@
+package com.radixdigit.mapper;
+
+import com.radixdigit.base.BaseSqlMapper;
+import com.radixdigit.entity.Users;
+
+public interface UsersMapper extends BaseSqlMapper<Users, Object>{
+    
+}

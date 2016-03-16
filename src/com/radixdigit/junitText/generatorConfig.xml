@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE generatorConfiguration  
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"  
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动 -->
+	<!-- 引入配置文件 -->
+	<properties resource="com/radixdigit/junitText/Mybatis-generator.properties"></properties>
+	<classPathEntry location="${classPath}" />
+	<context id="MysqlTables" targetRuntime="Mybatis3">
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<!-- 是否去除自动生成的注释 true：是 ： false:否  -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL，用户名、密码   -->
+		<jdbcConnection driverClass="${jdbc_driver}"
+			connectionURL="${jdbc_url}" userId="${jdbc_user}" password="${jdbc_password}">
+
+		</jdbcConnection>
+		<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置  -->
+		<javaModelGenerator targetPackage="${entityPath}"
+			targetProject="${project}">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成映射文件的包名和位置 -->
+
+		<sqlMapGenerator targetPackage="${daoMapping}"
+			targetProject="${project}">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="${dao}" targetProject="${project}">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 要生成哪些表 -->
+		<table tableName="fl_cust_corporation" domainObjectName="fl_cust_corporation"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_custom" domainObjectName="fl_cust_custom"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_custupload" domainObjectName="fl_cust_custupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_guarant2cust" domainObjectName="fl_cust_guarant2cust"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_guarantcorp" domainObjectName="fl_cust_guarantcorp"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_guarantnatu" domainObjectName="fl_cust_guarantnatu"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_guarantor" domainObjectName="fl_cust_guarantor"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_guarantupload" domainObjectName="fl_cust_guarantupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_link" domainObjectName="fl_cust_link"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_natural" domainObjectName="fl_cust_natural"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_realaccount" domainObjectName="fl_cust_realaccount"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_stockholder" domainObjectName="fl_cust_stockholder"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_stoctchange" domainObjectName="fl_cust_stoctchange"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_cust_visit" domainObjectName="fl_cust_visit"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_equi_equipment" domainObjectName="fl_equi_equipment"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_file_file" domainObjectName="fl_file_file"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_file_filedetail" domainObjectName="fl_file_filedetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_file_operation" domainObjectName="fl_file_operation"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_file_operationdetail" domainObjectName="fl_file_operationdetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fina_income" domainObjectName="fl_fina_income"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fina_incomeupload" domainObjectName="fl_fina_incomeupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_cutrecord" domainObjectName="fl_fund_cutrecord"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_cutrecorddetail" domainObjectName="fl_fund_cutrecorddetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_interestrate" domainObjectName="fl_fund_interestrate"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_onlineback" domainObjectName="fl_fund_onlineback"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_overdue" domainObjectName="fl_fund_overdue"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_paidbill" domainObjectName="fl_fund_paidbill"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_paiddetail" domainObjectName="fl_fund_paiddetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_paidincome" domainObjectName="fl_fund_paidincome"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_penaltorent" domainObjectName="fl_fund_penaltorent"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_priceoffset" domainObjectName="fl_fund_priceoffset"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_fund_rentout" domainObjectName="fl_fund_rentout"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_changed" domainObjectName="fl_insu_changed"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_dangerapply" domainObjectName="fl_insu_dangerapply"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_dangerupload" domainObjectName="fl_insu_dangerupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_insurance" domainObjectName="fl_insu_insurance"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policy" domainObjectName="fl_insu_policy"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policy2danger" domainObjectName="fl_insu_policy2danger"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policy2inpt" domainObjectName="fl_insu_policy2inpt"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policyequip" domainObjectName="fl_insu_policyequip"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policytype" domainObjectName="fl_insu_policytype"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_policyupload" domainObjectName="fl_insu_policyupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_insu_upload" domainObjectName="fl_insu_upload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_orga_company" domainObjectName="fl_orga_company"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_orga_companyaccount" domainObjectName="fl_orga_companyaccount"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_orga_department" domainObjectName="fl_orga_department"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_files" domainObjectName="fl_proj_files"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_filesdetail" domainObjectName="fl_proj_filesdetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_fileupload" domainObjectName="fl_proj_fileupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_guarantee" domainObjectName="fl_proj_guarantee"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_guarantor" domainObjectName="fl_proj_guarantor"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_insuretemplate" domainObjectName="fl_proj_insuretemplate"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_payinsure" domainObjectName="fl_proj_payinsure"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_payplan" domainObjectName="fl_proj_payplan"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_payscheme" domainObjectName="fl_proj_payscheme"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_payschupload" domainObjectName="fl_proj_payschupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_policytype" domainObjectName="fl_proj_policytype"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_project" domainObjectName="fl_proj_project"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_score" domainObjectName="fl_proj_score"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_scoredetail" domainObjectName="fl_proj_scoredetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_stage" domainObjectName="fl_proj_stage"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_submatter" domainObjectName="fl_proj_submatter"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_proj_subsupload" domainObjectName="fl_proj_subsupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rbac_perm2role" domainObjectName="fl_rbac_perm2role"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rbac_permission" domainObjectName="fl_rbac_permission"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rbac_role" domainObjectName="fl_rbac_role"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rbac_user2role" domainObjectName="fl_rbac_user2role"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_bill" domainObjectName="fl_rent_bill"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_contract" domainObjectName="fl_rent_contract"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_endprice" domainObjectName="fl_rent_endprice"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_files" domainObjectName="fl_rent_files"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_firstdayhis" domainObjectName="fl_rent_firstdayhis"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_payaccount" domainObjectName="fl_rent_payaccount"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_payplanother" domainObjectName="fl_rent_payplanother"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_rent_payway" domainObjectName="fl_rent_payway"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_blacklist" domainObjectName="fl_sms_blacklist"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_custmessage" domainObjectName="fl_sms_custmessage"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_delequi" domainObjectName="fl_sms_delequi"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_hismessage" domainObjectName="fl_sms_hismessage"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_manualmessage" domainObjectName="fl_sms_manualmessage"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_partsendrole" domainObjectName="fl_sms_partsendrole"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_receivemessage" domainObjectName="fl_sms_receivemessage"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_role2part" domainObjectName="fl_sms_role2part"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_roleofmes" domainObjectName="fl_sms_roleofmes"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_sendrole" domainObjectName="fl_sms_sendrole"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sms_template" domainObjectName="fl_sms_template"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_area" domainObjectName="fl_sys_area"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_bank" domainObjectName="fl_sys_bank"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_business" domainObjectName="fl_sys_business"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_code" domainObjectName="fl_sys_code"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_codelog" domainObjectName="fl_sys_codelog"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_dictionary" domainObjectName="fl_sys_dictionary"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_filename" domainObjectName="fl_sys_filename"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_filetype" domainObjectName="fl_sys_filetype"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insureaccount" domainObjectName="fl_sys_insureaccount"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insurecompany" domainObjectName="fl_sys_insurecompany"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insuredetail" domainObjectName="fl_sys_insuredetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insuredetailrate" domainObjectName="fl_sys_insuredetailrate"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insuretemple" domainObjectName="fl_sys_insuretemple"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insuretempletype" domainObjectName="fl_sys_insuretempletype"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_insuretype" domainObjectName="fl_sys_insuretype"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_log" domainObjectName="fl_sys_log"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_loginuser" domainObjectName="fl_sys_loginuser"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_markitem" domainObjectName="fl_sys_markitem"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_marklevel" domainObjectName="fl_sys_marklevel"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_markproject" domainObjectName="fl_sys_markproject"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_markstandard" domainObjectName="fl_sys_markstandard"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_marktemple" domainObjectName="fl_sys_marktemple"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_marktempledetail" domainObjectName="fl_sys_marktempledetail"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_message" domainObjectName="fl_sys_message"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_messagedept" domainObjectName="fl_sys_messagedept"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_messageupload" domainObjectName="fl_sys_messageupload"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_sys_schemeplate" domainObjectName="fl_sys_schemeplate"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+<table tableName="fl_user_user" domainObjectName="fl_user_user"   enableCountByExample="false" enableUpdateByExample="false"   enableDeleteByExample="false" enableSelectByExample="false"   selectByExampleQueryId="false">  </table>
+		
+	</context>
+
+</generatorConfiguration>

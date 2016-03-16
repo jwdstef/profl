@@ -1,0 +1,20 @@
+package dao;
+
+import entity.UserType;
+import entity.UserTypeExample;
+
+public interface UserTypeMapper {
+    int countByExample(UserTypeExample example);
+
+    int deleteByPrimaryKey(Integer tId);
+
+    int insert(UserType record);
+
+    int insertSelective(UserType record);
+
+    UserType selectByPrimaryKey(Integer tId);
+
+    int updateByPrimaryKeySelective(UserType record);
+
+    int updateByPrimaryKey(UserType record);
+}

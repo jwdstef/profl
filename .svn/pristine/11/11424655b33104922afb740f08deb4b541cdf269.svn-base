@@ -1,0 +1,46 @@
+package com.radixdigit.controller.users;
+
+import java.util.List;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.radixdigit.base.BaseController;
+import com.radixdigit.entity.files.Files;
+import com.radixdigit.utils.FileUploadAndDownLoad;
+import com.radixdigit.utils.ImageCommonUtil;
+import com.radixdigit.utils.UploadConfigurationRead;
+
+@Controller
+@Scope("prototype")
+@RequestMapping("/user")
+public class UserFileUploadTextAction extends BaseController<Object> {
+	@RequestMapping(method = RequestMethod.POST, value = "/upload")
+	public void uploadFiles() {
+		String filePath=UploadConfigurationRead.getInstance().getConfigItem(getRequest(),"text");
+		map = FileUploadAndDownLoad.uploader(filePath, getRequest(), getResponse());
+		List<Files> list = getFileDetail(map, "textUpload");
+		for (Files files : list) {
+			System.out.println(files.getFiledName());
+		}
+
+	}
+	
+	/**
+	 * 测试压缩图片
+	 */
+	@RequestMapping(method = RequestMethod.POST, value = "/image")
+	public void imageChange() {
+		String filePath=UploadConfigurationRead.getInstance().getConfigItem(getRequest(),"text");
+		map = FileUploadAndDownLoad.uploader(filePath, getRequest(), getResponse());
+		List<Files> list = getFileDetail(map, "uploadify");
+		for (Files files : list) {
+			ImageCommonUtil.zipImageFile(files.getFilePath(),650, 650, 1F, "");
+		}
+
+	}
+	
+
+}

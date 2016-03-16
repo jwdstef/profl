@@ -1,0 +1,32 @@
+package com.radixdigit.controller.users;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.radixdigit.base.BaseController;
+import com.radixdigit.entity.FlUserUser;
+import com.radixdigit.services.users.FlUserUserService;
+
+@Controller
+@Scope("prototype")
+public class FlUserUserController extends BaseController<FlUserUser>{
+	
+	@Autowired
+	private FlUserUserService flUserUserService;
+	
+	@RequestMapping(value="/userList")
+	public ModelAndView pageList(FlUserUser user){
+		List<FlUserUser> userList = flUserUserService.listPageUser(user);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("users");
+		mv.addObject("userList", userList);
+		mv.addObject("user", user);
+		return mv;
+	}
+
+}

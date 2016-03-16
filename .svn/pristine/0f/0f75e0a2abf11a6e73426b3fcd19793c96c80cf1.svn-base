@@ -1,0 +1,13 @@
+package com.radixdigit.services.users;
+
+import org.springframework.stereotype.Service;
+
+import com.radixdigit.entity.Users;
+@Service
+public interface UsersServices  {  
+	/**
+	 * loadAllUser
+	 * @return Users
+	 */
+	public Users selectUserAll();
+}
